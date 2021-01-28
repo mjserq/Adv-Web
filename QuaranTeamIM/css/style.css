@@ -1,0 +1,57 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.header{
+	height: 100vh;
+}
+.navbar-style{
+	box-shadow: 0 5px 10px #efefef;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100%;
+ 	background-image: url(../img/background.jpg);
+  background-size: cover;
+}
+.logo{
+	height: 60px;
+	
+}
+.user {
+	margin-top: 10px;
+	margin-left: 30px;
+	font-size: 15px;
+}
+.welcome{
+	margin-top: 300px;
+	font-size: 100px;
+	font-family: Impact, fantasy;
+	text-shadow: 0 10px 10px;
+	-webkit-text-stroke: 3px white;
+}
+.card{
+	margin-top: 50px;
+	}
+#add-prod{
+	border: solid #EE4443;
+}
+.addprod{
+	background-color: #FFCC00;
+}
+.table{
+	text-align: center;
+	box-shadow: 0 8px 12px black;
+}
+.table-warning{
+	width:30px ;
+
+
+
+}
+.footer{
+	background-color: white;
+	box-shadow: 20px white;
+	border-style: solid;
+	color: white;
+}

@@ -4,7 +4,7 @@
   <title>
     @yield('Title')
   </title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
@@ -13,11 +13,12 @@
 
 </head>    
 	<body>
+	
     <header class="header">
 		  		<nav class="navbar navbar-style">
 		  			<div class="container">
 		  				<div class="navbar-header">
-		   					<img class="logo" src="img/mrvapelogo.jpg">
+		   					<img class="logo" src="{{asset('img/mrvapelogo.jpg')}}">
 		   					<h1>
 
                                </h1>
@@ -28,7 +29,7 @@
 		     		 			<a class="navbar-brand btn btn-warning" href="home">Home</a>
 		     		 			<a class="navbar-brand btn btn-warning" href="products">Products</a>
 		     		 			<a class="navbar-brand btn btn-warning" href="sales">Sales</a>
-		     		 			<a class="navbar-brand btn btn-danger" href="logout">Logout</a>
+		     		 			<a class="navbar-brand btn btn-danger" href="login">Logout</a>
 
 		    				</div>
 		  				</div>

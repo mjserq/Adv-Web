@@ -10,7 +10,8 @@
 				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				      </div>
 
-				      <form method="POST" action="addprod.php"> 
+				      <form method="POST" action="/products"> 
+					  @csrf
 				      <div class="modal-body">
 				        
 							<div class="mb-3">
@@ -82,43 +83,48 @@
 
 
 
-									
+									@foreach ($products as $prod)
 								  <tbody>
 								    <tr class="table-warning">
-								      <td style="display: none;"></td>
-								      <td></td>
-								      <td></td>
-								      <td></td>
+								      <td style="display: none;">{{ $prod->prod_id}}</td>
+								      <td>{{ $prod->prod_name}}</td>
+								      <td>{{ $prod->prod_price}}</td>
+								      <td>{{ $prod->prod_quantity}}</td>
+									  
 								      <td>
+									  
 								      	<button type="button" class="btn btn-primary btnEdit">Edit</button>
+										  
 								      </td>
 
 								      <td>
-								      	<button type="button" class="btn btn-danger btnDelete">Delete</button>
+									  <a href="/products/{{$prod->prod_id}}" class="btn btn-danger">Delete</a>
 								      </td>
 								      
 								    </tr>
+									@endforeach
 								    </tbody>
-
+									
 								    
 
 								</table>
 							</div>
+		
 
 
 
 
-
-							<!-- Delete Modal -->
+							<!-- Delete Modal
 				<div class="modal fade" id="deletemodal" tabindex="-1" aria-labelledby="ExampleModalLabel" aria-hidden="true">
 				  <div class="modal-dialog">
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <h5 class="modal-title" id="deleteLabel">Delete Product</h5>
 				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				      </div>
+				      </div> 
 
-				      <form method="POST" action="delete.php"> 
+				      <form method="POST" action="/products"> 
+					  {{method_field('DELETE')}}
 				      <div class="modal-body">
 				      			<h4>Do you want to delete this product?</h4>
 				      			<input type="hidden" name="delete_id" id="delete_id">
@@ -128,16 +134,20 @@
 				        		
 								
 				      	</div>
+						  
 				      		<div class="modal-footer">
 				        		<button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
-				        		<button type="submit" name="btnDelete" class="btn btn-warning">Yes</button>
+								
+								<a href="" class="btn btn-warning">Yes</a>
+				        		
    						</div>
-
-				      </form>
+						
+					</form>
+				      
 				    </div>
 				  </div>
-				</div>
-
+				</div>-->
+				 
 							<!-- Edit Modal -->
 				<div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="ExampleModalLabel" aria-hidden="true">
 				  <div class="modal-dialog">
@@ -175,6 +185,52 @@
    						</div>
 
 				      </form>
+				    </div>
+				  </div>
+				</div>
+
+							<!-- Edit Modal -->
+				<div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="ExampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="editLabel">Edit Product</h5>
+				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				      </div>
+
+				      <form method="POST" action="update.php"> 
+				      <div class="modal-body">
+
+
+
+				      			<div class="mb-3">
+								 
+								    <input type="hidden" id="update_id" name="update_id"  placeholder="Product Id" class="form-control" >
+				        
+								<div class="mb-3">
+								    <label class="form-label">Product Name</label>
+								    <input type="text" id="up_name" name="up_name"  placeholder="Product Name" class="form-control" required="true">
+							 	</div>
+							 	<div class="mb-3">
+								    <label class="form-label">Product Price</label>
+								    <input type="text" id="up_price" name="up_price" placeholder="Product Price" class="form-control" required="true" >
+							 	</div>
+							 	<div class="mb-3">
+								    <label class="form-label">Product Quantity</label>
+								    <input type="text" id="up_quantity" name="up_quantity" placeholder="Product Quantity" class="form-control" required="true">
+							 	</div>		
+				      	</div>
+				      		<div class="modal-footer">
+				        		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				        		<button type="submit" name="btnUpdate" class="btn btn-warning">Edit Product</button>
+   						</div>
+
+				      </form>
+
+					 
+					  	@if(isset($msg))
+						{{ $msg }}
+						@endif
 				    </div>
 				  </div>
 				</div>

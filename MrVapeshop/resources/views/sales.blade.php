@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section ('Title','Home')
+@section ('Title','Daily Sales')
 @section ('sales')
 <!-- Modal -->
 <div class="modal fade" id="salesaddModal" tabindex="-1" aria-labelledby="ExampleModalLabel" aria-hidden="true">
@@ -10,8 +10,9 @@
 				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				      </div>
 
-				      <form method="POST" action="addsales.php"> 
+				      <form method="POST" action="/sales"> 
 				      <div class="modal-body">
+					  @csrf
 				        
 							<div class="mb-3">
 								
@@ -85,22 +86,24 @@
 
 
 									
+								  @foreach ($sales as $sale)
 								  <tbody>
 								    <tr class="table-warning">
-								      <td style="display: none;"></td>
-								      <td></td>
-								      <td></td>
-								      <td></td>
+								      <td style="display: none;">{{ $sale->sales_id}}</td>
+								      <td>{{ $sale->sales_date}}</td>
+								      <td>{{ $sale->product_sold}}</td>
+								      <td>{{ $sale->total_amount}}</td>
 								      <td>
-								      	<button type="button" class="btn btn-primary btnsalesEdit">Edit</button>
+								      	<button type="button" class="btn btn-primary btnEdit">Edit</button>
 								      </td>
 
 								      <td>
-								      	<button type="button" class="btn btn-danger btnsalesDelete">Delete</button>
+									  <a href="/sales/{{$sale->sales_id}}" class="btn btn-danger">Delete</a>
 								      </td>
 								      
 								    </tr>
 								    </tbody>
+									@endforeach
 
 								</table>
 							</div>
@@ -109,7 +112,7 @@
 
 
 
-							<!-- Delete Modal -->
+							<!-- Delete Modal 
 				<div class="modal fade" id="deletesalesmodal" tabindex="-1" aria-labelledby="ExampleModalLabel" aria-hidden="true">
 				  <div class="modal-dialog">
 				    <div class="modal-content">
@@ -136,7 +139,7 @@
 				      </form>
 				    </div>
 				  </div>
-				</div>
+				</div>-->
 
 							<!-- Edit Modal -->
 				<div class="modal fade" id="editsalesmodal" tabindex="-1" aria-labelledby="ExampleModalLabel" aria-hidden="true">

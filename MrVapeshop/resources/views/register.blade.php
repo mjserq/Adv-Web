@@ -11,8 +11,9 @@
       <div class="wrapper fadeInDown">
         <div id="formContent">
 
-          <h2 class="active underlineHove"><a href="login.php" class="click">Log In</a></h2>
-            <form method="POST" action="register.php"> 
+          <h2 class="active underlineHove"><a href="login" class="click">Log In</a></h2>
+            <form method="POST" action="/register"> 
+            @csrf
               <input type="text" class="fadeIn first" name="firstname" placeholder="First Name" required="TRUE">
                 <input type="text" class="fadeIn first" name="lastname" placeholder="Last Name" required="TRUE">
                 <input type="password" class="fadeIn first" name="password" placeholder="Password" required="TRUE">
